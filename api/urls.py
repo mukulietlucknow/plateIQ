@@ -1,11 +1,16 @@
 from django.urls import path,include
-from .views import FileView,StatusDetail,StatusViewSet,InvoiceViewSet,DataAPIView
+from .views import FileView,StatusDetail,StatusViewSet,DataAPIView,ProductsViewSet,InvoiceViewSet,OnlyProductsViewSet,VendorViewSet,CustomerViewSet,FileViewSet
 from rest_framework.routers import SimpleRouter
 
 
 router = SimpleRouter()
 router.register('invoiceStatus',StatusViewSet , basename='invoiceStatus')
-router.register('invoiceData' ,InvoiceViewSet, basename='invoiceData' )
+router.register('products' ,ProductsViewSet, basename='products' )
+router.register('invoices' ,InvoiceViewSet, basename='invoices' )
+router.register('onlyProducts' ,OnlyProductsViewSet, basename='onlyProducts' )
+router.register('vendors' ,VendorViewSet, basename='vendors' )
+router.register('customers' ,CustomerViewSet, basename='customers' )
+router.register('files' ,FileViewSet, basename='files' )
 
 urlpatterns = [
     path('upload/' , FileView.as_view() , name='file_upload' ),

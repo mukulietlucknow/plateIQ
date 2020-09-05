@@ -26,6 +26,7 @@ class Customer(models.Model):
     zip = models.CharField(max_length=6)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now = True)
+    invoice_number = models.ForeignKey(FileInfo , on_delete=models.CASCADE , related_name='customer' , default=10)
 
     def __str__(self):
         return self.name
@@ -37,6 +38,7 @@ class Vendor(models.Model):
     UIN = models.CharField(max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now = True)
+    invoice_number = models.ForeignKey(FileInfo , on_delete=models.CASCADE , related_name='vendor' , default=10)
 
     def __str__(self):
         return self.name
@@ -50,7 +52,7 @@ class Invoice(models.Model):
     discount = models.IntegerField()
     customer_id = models.ForeignKey(Customer,on_delete=models.CASCADE)
     vendor_id = models.ForeignKey(Vendor , on_delete=models.CASCADE)
-    invoice_number = models.ForeignKey(FileInfo , on_delete=models.CASCADE , related_name='+')
+    invoice_number = models.ForeignKey(FileInfo , on_delete=models.CASCADE , related_name='products')
 
     def __str__(self):
         return self.product_name
