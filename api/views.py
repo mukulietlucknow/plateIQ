@@ -32,6 +32,10 @@ class FileView(APIView):
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class FileViewSet(viewsets.ModelViewSet):
+    '''
+    This API provide all way to control the submitted file by clients
+    method - GET,PUT,POST,PATCH,DELETE 
+    '''
     queryset = FileInfo.objects.all()
     serializer_class = FileSerializer
 
