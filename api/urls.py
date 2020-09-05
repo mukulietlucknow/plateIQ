@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import FileView,StatusDetail,StatusViewSet,DataAPIView,ProductsViewSet,InvoiceViewSet,OnlyProductsViewSet,VendorViewSet,CustomerViewSet,FileViewSet
+from .views import FileView,StatusDetail,StatusViewSet,ProductsViewSet,InvoiceViewSet,OnlyProductsViewSet,VendorViewSet,CustomerViewSet,FileViewSet
 from rest_framework.routers import SimpleRouter
 
 
@@ -15,6 +15,6 @@ router.register('files' ,FileViewSet, basename='files' )
 urlpatterns = [
     path('upload/' , FileView.as_view() , name='file_upload' ),
     path('status/<int:account_id>' , StatusDetail.as_view() , name='get_invoices_status'),
-    path('test/' , DataAPIView.as_view() , name='test'),
+    #path('test/' , DataAPIView.as_view() , name='test'),
     path('viewset/' , include(router.urls)),
 ]

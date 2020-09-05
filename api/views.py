@@ -115,15 +115,15 @@ class CustomerViewSet(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
 
 
-class DataAPIView(APIView):
-    '''
-    This APIs has been created Just for cheking something 
-    '''
-    def get(self, request):
-        data = {}
-        file_info = FileInfo.objects.all()
-        serializer = PDFSerializer(file_info , many=True)
-        return Response(serializer.data)
+# class DataAPIView(APIView):
+#     '''
+#     This APIs has been created Just for cheking something 
+#     '''
+#     def get(self, request):
+#         data = {}
+#         file_info = FileInfo.objects.all()
+#         serializer = PDFSerializer(file_info , many=True)
+#         return Response(serializer.data)
 
 class InvoiceViewSet(viewsets.ModelViewSet):
     '''
